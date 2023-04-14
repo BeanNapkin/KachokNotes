@@ -1,59 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20px"
-        android:background="#F6F6F6">
+        android:background="#F6F6F6"
+        android:padding="40px">
 
-        <ImageView
-            android:id="@+id/exerciseImageView"
-            android:layout_width="150px"
-            android:layout_height="150px"
-            android:src="@drawable/exercise"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/exerciseCardView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:cardCornerRadius="5dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/exerciseImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/exercise" />
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/nameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:fontFamily="@font/roboto_bold"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@id/exerciseImageView"
+            app:layout_constraintStart_toEndOf="@id/exerciseCardView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Приседания со штангой" />
 
-        <TextView
-            android:id="@+id/repetitionTextView"
+        <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:fontFamily="@font/roboto_medium"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+            android:rowCount="2"
+            android:columnCount="5"
             app:layout_constraintStart_toStartOf="@id/nameTextView"
-            app:layout_constraintTop_toBottomOf="@id/nameTextView"
-            tools:text="10 x 15" />
+            app:layout_constraintTop_toBottomOf="@id/nameTextView">
+
+            <TextView
+                android:id="@+id/repetitionTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_medium"
+                android:paddingEnd="10dp"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:text="10 x 15" />
+        </GridLayout>
 
         <ImageView
             android:id="@+id/editButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
             android:src="@drawable/edit_button"
-            app:layout_constraintStart_toEndOf="@id/nameTextView"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </LinearLayout>
 
