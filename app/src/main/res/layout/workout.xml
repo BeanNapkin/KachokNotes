@@ -28,14 +28,12 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/nameTextView"
+            style="@style/TextAppearance.CardTitle.DisplaySmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:fontFamily="@font/roboto_bold"
-            android:textColor="@color/black"
-            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/exerciseCardView"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Приседания со штангой" />
@@ -43,8 +41,8 @@
         <GridLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:rowCount="2"
             android:columnCount="5"
+            android:rowCount="2"
             app:layout_constraintStart_toStartOf="@id/nameTextView"
             app:layout_constraintTop_toBottomOf="@id/nameTextView">
 
@@ -53,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:fontFamily="@font/roboto_medium"
+                android:textFontWeight="600"
                 android:paddingEnd="10dp"
                 android:textColor="@color/black"
                 android:textSize="12sp"
