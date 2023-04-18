@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.kachoknotes.databinding.FragmentExerciseListBinding
-import com.example.kachoknotes.databinding.WorkoutBinding
+import com.example.kachoknotes.databinding.ExerciseBinding
 import com.example.kachoknotes.entity.Repetition
-import com.example.kachoknotes.entity.Workout
+import com.example.kachoknotes.entity.Exercise
 
 class ExerciseListFragment : Fragment() {
 
@@ -20,13 +20,13 @@ class ExerciseListFragment : Fragment() {
 
     private lateinit var viewModel: ExerciseListViewModel
 
-    val adapter = RecyclerAdapter<Workout>(
+    val adapter = RecyclerAdapter<Exercise>(
         emptyList(),
-        R.layout.workout
-    ) {workout, _ ->
-        WorkoutBinding.bind(this).apply {
-            nameTextView.text = workout.name
-            repetitionTextView.text = workout.repetitions.first().quantity.toString() + " x " + workout.repetitions.first().weight.toString() + " кг"
+        R.layout.exercise
+    ) {exercise, _ ->
+        ExerciseBinding.bind(this).apply {
+            nameTextView.text = exercise.name
+            repetitionTextView.text = exercise.repetitions.first().quantity.toString() + " x " + exercise.repetitions.first().weight.toString() + " кг"
         }
     }
 
@@ -44,11 +44,11 @@ class ExerciseListFragment : Fragment() {
         val repetition = Repetition(1, 10, 15.00)
         val repetitions = listOf(repetition)
 
-        val workout = Workout(1, "Приседания со штангой", "", repetitions)
-        val workouts = listOf(workout)
+        val exercise = Exercise(1, "Приседания со штангой", "", repetitions)
+        val exercises = listOf(exercise)
 
         binding.recyclerView.adapter = adapter
-        adapter.itemList = workouts
+        adapter.itemList = exercises
     }
 
     companion object {

@@ -16,10 +16,21 @@
     </style>
 
     <style name="TextAppearance.CardTitle.DisplaySmall" parent="TextAppearance.Material3.BodySmall">
-<!--        <item name="android:textFontWeight">800</item>-->
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="TextAppearance.Header.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Widget.SmallIconButtons.IconButton" parent="Widget.Material3.Button.IconButton.Filled">
+
+
+    </style>
+
 
 </resources>

@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#B1B1B1</color>
     <color name="green">#5DB075</color>
+    <color name="workout_background">#F6F6F6</color>
 </resources>
