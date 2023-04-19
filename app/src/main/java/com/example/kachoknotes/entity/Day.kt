@@ -1,6 +1,6 @@
 package com.example.kachoknotes.entity
 
-data class Workout(
+data class Day(
     val id: Int,
-    val exercises: List<Exercise>
+    val workouts: List<Workout>
 )

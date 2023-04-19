@@ -15,7 +15,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:itemCount="5"
-        tools:listitem="@layout/exercise" />
+        tools:itemCount="2"
+        tools:listitem="@layout/workout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

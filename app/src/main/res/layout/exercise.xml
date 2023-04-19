@@ -54,21 +54,21 @@
             tools:text="10 x 15" />
     </GridLayout>
 
-    <View
-        android:id="@+id/editButtonView"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="-7dp"
-        android:layout_marginEnd="-7dp"
-        app:layout_constraintEnd_toEndOf="@id/editButton"
-        app:layout_constraintTop_toTopOf="@id/editButton" />
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/editButton"
         style="@style/Widget.SmallIconButtonsGrey.IconButton"
         app:icon="@drawable/baseline_edit_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/editButtonView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="@id/editButton"
+        app:layout_constraintBottom_toBottomOf="@id/editButton"
+        app:layout_constraintEnd_toEndOf="@id/editButton"
+        app:layout_constraintTop_toTopOf="@id/editButton" />
 
     <com.google.android.material.divider.MaterialDivider
         android:layout_width="0dp"
