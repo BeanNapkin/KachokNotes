@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KachokNotes</string>
+    <string name="today">Сегодня</string>
 </resources>
