@@ -10,4 +10,5 @@
     <color name="gray">#B1B1B1</color>
     <color name="green">#5DB075</color>
     <color name="workout_background">#F6F6F6</color>
+    <color name="transparent_green">#195DB075</color>
 </resources>
