@@ -10,7 +10,7 @@
 
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/filterToggleGroup"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,32 +19,35 @@
 
         <Button
             android:id="@+id/allFilterButton"
+            android:layout_weight="1"
             style="@style/Widget.FilterButton.Button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/all" />
 
         <Button
             android:id="@+id/popularFilterButton"
+            android:layout_weight="1"
             style="@style/Widget.FilterButton.Button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/popular" />
 
         <Button
             android:id="@+id/recentFilterButton"
+            android:layout_weight="1"
             style="@style/Widget.FilterButton.Button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/recent" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/filterToggleGroup"
         app:layout_constraintTop_toBottomOf="@id/filterToggleGroup"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/filterToggleGroup"
         android:hint="Искать упражнение"/>
 
 <!--    <com.google.android.material.textfield.TextInputLayout-->
