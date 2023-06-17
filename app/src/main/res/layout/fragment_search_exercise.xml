@@ -51,6 +51,7 @@
         app:endIconCheckable="true"
         app:endIconDrawable="@drawable/baseline_search_24"
         app:endIconMode="custom"
+        android:paddingBottom="20dp"
         app:layout_constraintStart_toStartOf="@id/filterToggleGroup"
         app:layout_constraintTop_toBottomOf="@id/filterToggleGroup"
         app:layout_constraintEnd_toEndOf="@id/filterToggleGroup">
@@ -62,5 +63,16 @@
                 android:hint="@string/input_exercise_name"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchExerciseInputLayout"
+        tools:itemCount="2"
+        tools:listitem="@layout/exercise_search" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
