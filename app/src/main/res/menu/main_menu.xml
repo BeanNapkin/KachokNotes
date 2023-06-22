@@ -6,6 +6,6 @@
         android:id="@+id/add_train"
         android:icon="@drawable/add_backgroud"
         android:title="Добавить тренировку"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="always" />
 
 </menu>

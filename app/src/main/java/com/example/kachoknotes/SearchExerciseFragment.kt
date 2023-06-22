@@ -6,12 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.kachoknotes.databinding.FragmentSearchExerciseBinding
 
 class SearchExerciseFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = SearchExerciseFragment()
-    }
+    private var _binding: FragmentSearchExerciseBinding? = null
+    val binding: FragmentSearchExerciseBinding
+        get() {
+            return _binding!!
+        }
 
     private lateinit var viewModel: SearchExerciseViewModel
 
@@ -19,7 +22,8 @@ class SearchExerciseFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_search_exercise, container, false)
+        _binding = FragmentSearchExerciseBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -27,5 +31,7 @@ class SearchExerciseFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(SearchExerciseViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
+    companion object {
+        fun newInstance() = SearchExerciseFragment()
+    }
 }

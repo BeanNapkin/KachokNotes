@@ -1,6 +1,5 @@
 package com.example.kachoknotes.entity
-
 data class Workout(
     val id: Int,
-    val exercises: List<Exercise>
+    val exercises: MutableList<Exercise>
 )
