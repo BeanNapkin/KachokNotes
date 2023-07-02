@@ -1,31 +1,32 @@
-package com.example.kachoknotes
+package com.example.kachoknotes.ui.day
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
-import com.example.kachoknotes.databinding.FragmentExerciseListBinding
+import com.example.kachoknotes.AppNavigationInteractor
+import com.example.kachoknotes.R
+import com.example.kachoknotes.ui.RecyclerAdapter
 import com.example.kachoknotes.databinding.ExerciseBinding
+import com.example.kachoknotes.databinding.FragmentDayBinding
 import com.example.kachoknotes.databinding.WorkoutBinding
-import com.example.kachoknotes.entity.Day
-import com.example.kachoknotes.entity.Repetition
 import com.example.kachoknotes.entity.Exercise
 import com.example.kachoknotes.entity.Workout
-import java.util.Date
 
-class ExerciseListFragment : Fragment() {
+class DayFragment : Fragment() {
 
-    private var _binding: FragmentExerciseListBinding? = null
-    val binding: FragmentExerciseListBinding
+    private val appNavigationInteractor: AppNavigationInteractor = AppNavigationInteractor.instance.value
+
+    private var _binding: FragmentDayBinding? = null
+    val binding: FragmentDayBinding
         get() {
             return _binding!!
         }
 
-    private val viewModel: ExerciseListViewModel by lazy {
-        ViewModelProvider(this).get(ExerciseListViewModel::class.java)
+    private val viewModel: DayViewModel by lazy {
+        ViewModelProvider(this).get(DayViewModel::class.java)
     }
 
     val adapterWorkout = RecyclerAdapter<Workout>(
@@ -36,6 +37,10 @@ class ExerciseListFragment : Fragment() {
             headerTextView.text = "Тренировка " + workout.id.toString()
             adapterExercise.itemList = workout.exercises
             recyclerView.adapter = adapterExercise
+            addExerciseButton.setOnClickListener {
+                appNavigationInteractor.navigateTo(AppNavigationInteractor.Screen.SearchExercise)
+
+            }
         }
     }
 
@@ -53,7 +58,7 @@ class ExerciseListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentExerciseListBinding.inflate(inflater, container, false)
+        _binding = FragmentDayBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -1,6 +1,8 @@
-package com.example.kachoknotes
+package com.example.kachoknotes.ui.mainActivity
 
 import androidx.lifecycle.ViewModel
+import com.example.kachoknotes.clean.DayRepository
+import com.example.kachoknotes.clean.DayRepositoryImpl
 import java.util.*
 
 class MainActivityViewModel(

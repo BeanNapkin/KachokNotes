@@ -1,4 +1,4 @@
-package com.example.kachoknotes
+package com.example.kachoknotes.clean
 
 import androidx.lifecycle.LiveData
 import com.example.kachoknotes.entity.Day

@@ -1,4 +1,4 @@
-package com.example.kachoknotes
+package com.example.kachoknotes.ui
 
 import android.view.LayoutInflater
 import android.view.View

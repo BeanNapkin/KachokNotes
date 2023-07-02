@@ -1,4 +1,4 @@
-package com.example.kachoknotes
+package com.example.kachoknotes.ui.searchExercise
 
 import androidx.lifecycle.ViewModel
 

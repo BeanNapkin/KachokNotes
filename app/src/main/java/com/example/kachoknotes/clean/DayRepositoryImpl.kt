@@ -1,4 +1,4 @@
-package com.example.kachoknotes
+package com.example.kachoknotes.clean
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
