@@ -1,19 +1,18 @@
 package com.example.kachoknotes.ui.day
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toolbar
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.example.kachoknotes.AppNavigationInteractor
 import com.example.kachoknotes.R
-import com.example.kachoknotes.ui.RecyclerAdapter
 import com.example.kachoknotes.databinding.ExerciseBinding
 import com.example.kachoknotes.databinding.FragmentDayBinding
 import com.example.kachoknotes.databinding.WorkoutBinding
 import com.example.kachoknotes.entity.Exercise
 import com.example.kachoknotes.entity.Workout
+import com.example.kachoknotes.ui.RecyclerAdapter
 
 class DayFragment : Fragment() {
 
@@ -54,12 +53,21 @@ class DayFragment : Fragment() {
         }
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentDayBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main_menu, menu)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -78,5 +86,21 @@ class DayFragment : Fragment() {
                 adapterWorkout.itemList = it.workouts
                 adapterWorkout.notifyDataSetChanged()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.add_train -> {
+                viewModel.addTrain()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        appNavigationInteractor.setAppBarData(AppNavigationInteractor.AppBarData(
+            "Сегодня", R.drawable.calendar))
     }
 }

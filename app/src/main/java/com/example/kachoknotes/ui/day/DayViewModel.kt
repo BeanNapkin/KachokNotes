@@ -15,4 +15,8 @@ class DayViewModel(
 
     val getLiveData: LiveData<Day>
         get() = daysRepository.getDay(date)
+
+    fun addTrain(){
+        daysRepository.addTraining(date)
+    }
 }

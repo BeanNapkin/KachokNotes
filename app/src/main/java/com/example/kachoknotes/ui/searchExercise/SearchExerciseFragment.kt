@@ -2,13 +2,15 @@ package com.example.kachoknotes.ui.searchExercise
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import com.example.kachoknotes.AppNavigationInteractor
+import com.example.kachoknotes.R
 import com.example.kachoknotes.databinding.FragmentSearchExerciseBinding
 
 class SearchExerciseFragment : Fragment() {
+
+    private val appNavigationInteractor: AppNavigationInteractor = AppNavigationInteractor.instance.value
 
     private var _binding: FragmentSearchExerciseBinding? = null
     val binding: FragmentSearchExerciseBinding
@@ -26,11 +28,19 @@ class SearchExerciseFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SearchExerciseViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
+
+    override fun onResume() {
+        super.onResume()
+        appNavigationInteractor.setAppBarData(
+            AppNavigationInteractor.AppBarData(
+            "Найти упражнение", -1))
+
+
+    }
+
     companion object {
         fun newInstance() = SearchExerciseFragment()
     }

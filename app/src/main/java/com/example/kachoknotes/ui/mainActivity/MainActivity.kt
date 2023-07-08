@@ -1,6 +1,7 @@
 package com.example.kachoknotes.ui.mainActivity
 
 import android.os.Bundle
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -13,11 +14,9 @@ import com.example.kachoknotes.ui.searchExercise.SearchExerciseFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val appNavigationInteractor: AppNavigationInteractor = AppNavigationInteractor.instance.value
+    private val appNavigationInteractor: AppNavigationInteractor =
+        AppNavigationInteractor.instance.value
 
-    private val viewModel: MainActivityViewModel by lazy {
-        ViewModelProvider(this).get(MainActivityViewModel::class.java)
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,33 +24,36 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        appNavigationInteractor.currentScreen.observe(this){
-            when(it){
-                AppNavigationInteractor.Screen.Day ->
+        setSupportActionBar(binding.appBar)
+
+        appNavigationInteractor.currentScreen.observe(this) {
+            when (it) {
+                AppNavigationInteractor.Screen.Day -> {
                     replaceFragment(DayFragment())
+                }
+
                 AppNavigationInteractor.Screen.SearchExercise ->
                     replaceFragment(SearchExerciseFragment())
+
+            }
+        }
+
+        appNavigationInteractor.appBarData.observe(this) {
+            binding.appBar.setTitle(it.title)
+            if (it.icon == -1){
+                binding.appBar.setNavigationIcon(null)
+            } else {
+                binding.appBar.setNavigationIcon(it.icon)
             }
         }
     }
-    override fun onStart() {
-        super.onStart()
 
-        binding.appBar.setOnMenuItemClickListener {
-            when (it.itemId) {
-                R.id.add_train -> viewModel.addTraining()
-            }
-            true
-        }
-    }
-
-    private fun replaceFragment(fragment: Fragment){
+    private fun replaceFragment(fragment: Fragment) {
         val transaction = supportFragmentManager
             .beginTransaction()
             .replace(R.id.main_container, fragment)
 
-        if (supportFragmentManager.fragments.isNotEmpty())
-        {
+        if (supportFragmentManager.fragments.isNotEmpty()) {
             transaction.addToBackStack(null);
         }
 
